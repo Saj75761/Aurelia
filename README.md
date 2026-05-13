@@ -47,7 +47,7 @@ To run this project locally, follow these steps:
    ```bash
    python main.py
    ```
-   *The site will be available at http://localhost:8080*
+   *The site will be available at http://localhost:8000/*
 
 ## 🐳 Docker Deployment
 
