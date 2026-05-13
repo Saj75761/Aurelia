@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections | AURELIA Luxury Menswear</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="scrolled">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">AURELIA</a>
+                <ul class="nav-links">
+                    <li><a href="collections.html">Collection</a></li>
+                    <li><a href="about.html">The Atelier</a></li>
+                    <li><a href="contact.html">Concierge</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <div class="cart-icon" onclick="toggleCart(true)">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Collections Header -->
+    <section class="section" style="margin-top: 100px; padding-bottom: 60px;">
+        <div class="container">
+            <div class="section-title reveal">
+                <p>The Full Curation</p>
+                <h2>AURELIA Collection</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <!-- Filters -->
+            <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 60px;" class="reveal">
+                <button class="filter-btn active" onclick="filterCategory('all')">All</button>
+                <button class="filter-btn" onclick="filterCategory('Suits')">Suits</button>
+                <button class="filter-btn" onclick="filterCategory('Shirts')">Shirts</button>
+                <button class="filter-btn" onclick="filterCategory('Outerwear')">Outerwear</button>
+                <button class="filter-btn" onclick="filterCategory('Accessories')">Accessories</button>
+            </div>
+
+            <div id="product-grid" class="product-grid">
+                <!-- Products injected via JS -->
+            </div>
+
+            <!-- Floating Cart Trigger -->
+            <div id="floating-cart" class="floating-cart" onclick="toggleCart(true)">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count">0</span>
+                <span style="margin-left: 10px; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">View Atelier</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Drawer -->
+    <div id="overlay" class="overlay" onclick="toggleCart(false)"></div>
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3>Your Atelier</h3>
+            <span class="close-cart" onclick="toggleCart(false)">Close</span>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Investment</span>
+                <span class="cart-total-value">$0.00</span>
+            </div>
+            <a href="checkout.html" class="btn" style="width: 100%; text-align: center;">Proceed to Checkout</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <style>
+        .filter-btn {
+            background: transparent;
+            border: none;
+            color: var(--grey-400);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+        .filter-btn.active {
+            color: var(--gold);
+        }
+        .filter-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: var(--transition-fast);
+            transform: translateX(-50%);
+        }
+        .filter-btn.active::after {
+            width: 60%;
+        }
+
+        /* Floating Cart */
+        .floating-cart {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--gold);
+            color: var(--obsidian);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            z-index: 900;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: var(--transition-slow);
+            opacity: 0;
+        }
+        .floating-cart.visible {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+        .floating-cart:hover {
+            transform: translateX(-50%) translateY(-5px);
+            background: var(--white);
+        }
+    </style>
+</body>
+</html>

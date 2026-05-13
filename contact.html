@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concierge | AURELIA Personal Inquiry</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="scrolled">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">AURELIA</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Collection</a></li>
+                    <li><a href="about.html">The Atelier</a></li>
+                    <li><a href="contact.html">Concierge</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <div class="cart-icon" onclick="toggleCart(true)">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section" style="margin-top: 80px;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 120px;">
+                <div class="reveal">
+                    <p style="color: var(--gold); text-transform: uppercase; letter-spacing: 5px; margin-bottom: 25px; font-size: 0.9rem;">Private Service</p>
+                    <h1 style="font-size: 4.5rem; line-height: 1.1; margin-bottom: 40px;">Request a <br>Consultation</h1>
+                    <p style="font-size: 1.1rem; color: #888; margin-bottom: 50px; font-weight: 300;">
+                        Our master tailors and senior stylists are available for private consultations across our global flagships. For bespoke commissions or private fitting requests, please provide your details below. A dedicated member of our concierge team will respond within the hour.
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                        <div>
+                            <h4 style="color: var(--gold); margin-bottom: 15px; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 3px;">London</h4>
+                            <p style="color: #BBB; font-size: 0.95rem;">Savile Row, Mayfair<br>United Kingdom</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--gold); margin-bottom: 15px; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 3px;">Milan</h4>
+                            <p style="color: #BBB; font-size: 0.95rem;">Via Montenapoleone<br>Italy</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--gold); margin-bottom: 15px; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 3px;">New York</h4>
+                            <p style="color: #BBB; font-size: 0.95rem;">Madison Avenue<br>United States</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--gold); margin-bottom: 15px; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 3px;">Inquiries</h4>
+                            <p style="color: #BBB; font-size: 0.95rem;">concierge@aurelia.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <div style="background: var(--obsidian-light); padding: 60px; border: 1px solid var(--glass-border); position: relative;">
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" name="name" required class="form-input" placeholder="e.g. Julian Vane">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" name="email" required class="form-input" placeholder="e.g. julian@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Inquiry Type</label>
+                                <select name="subject" class="form-input" style="background: var(--obsidian);">
+                                    <option>Private Fitting Consultation</option>
+                                    <option>Bespoke Tailoring Commission</option>
+                                    <option>Corporate Wardrobe Curation</option>
+                                    <option>Event Partnership</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Aesthetic Vision / Requirements</label>
+                                <textarea name="message" rows="5" required class="form-input" placeholder="Please describe the occasion or specific requirements..."></textarea>
+                            </div>
+                            <button type="submit" class="btn" style="width: 100%; margin-top: 20px;">Submit Inquiry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Drawer -->
+    <div id="overlay" class="overlay" onclick="toggleCart(false)"></div>
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3>Your Atelier</h3>
+            <span class="close-cart" onclick="toggleCart(false)">Close</span>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Investment</span>
+                <span class="cart-total-value">$0.00</span>
+            </div>
+            <a href="checkout.html" class="btn" style="width: 100%; text-align: center;">Proceed to Checkout</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
