@@ -18,9 +18,21 @@
                     <li><a href="about.html">The Atelier</a></li>
                     <li><a href="contact.html">Concierge</a></li>
                 </ul>
+                <div class="nav-icons">
+                    <div class="hamburger-menu" onclick="toggleMobileMenu()">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-nav" class="mobile-nav">
+        <a href="index.html" onclick="toggleMobileMenu()">Collection</a>
+        <a href="about.html" onclick="toggleMobileMenu()">The Atelier</a>
+        <a href="contact.html" onclick="toggleMobileMenu()">Concierge</a>
+    </div>
 
     <section class="section" style="margin-top: 80px;">
         <div class="container">
@@ -129,7 +141,7 @@
                 };
 
                 try {
-                    const response = await fetch('http://localhost:8000/process-payment', {
+                    const response = await fetch('/process-payment', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)

@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8000';
+const API_URL = '';
 
 // ─── STATE MANAGEMENT ───
 let cart = JSON.parse(localStorage.getItem('aurelia_cart')) || [];
@@ -179,6 +179,22 @@ function toggleCart(open) {
         drawer.classList.remove('active');
         overlay.classList.remove('active');
         document.body.style.overflow = 'auto';
+    }
+}
+
+// ─── MOBILE MENU LOGIC ───
+function toggleMobileMenu() {
+    const mobileNav = document.getElementById('mobile-nav');
+    if (!mobileNav) return;
+    
+    const isActive = mobileNav.classList.contains('active');
+    
+    if (isActive) {
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    } else {
+        mobileNav.classList.add('active');
+        document.body.style.overflow = 'hidden';
     }
 }
 
